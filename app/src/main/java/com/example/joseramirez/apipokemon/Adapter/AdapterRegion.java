@@ -45,13 +45,12 @@ public class AdapterRegion extends  RecyclerView.Adapter<AdapterRegion.MyViewHol
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
         final String url = resultList.get(position).getUrl().toString();
         final String name = resultList.get(position).getName().toString();
-        holder.bind(resultList.get(position).getName(),resultList.get(position).getUrl(),itemClickListener);
 
-       holder.name.setText(resultList.get(position).getName());
+        holder.name.setText(resultList.get(position).getName());
+
         holder.name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(context,"some text" + url ,Toast.LENGTH_LONG).show();
                 itemClickListener.onItemClick(name, url ,position);
             }
         });
@@ -71,20 +70,8 @@ public class AdapterRegion extends  RecyclerView.Adapter<AdapterRegion.MyViewHol
             name = (TextView)itemView.findViewById(R.id.name);
 
         }
-
-        public void  bind(final String name , final String url , final OnItemClickListener  listener ){
-            this.name.setText(name);
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(context,"Context",Toast.LENGTH_LONG).show();
-
-                }
-            });
-        }
-
     }
+
     public interface  OnItemClickListener{
         void onItemClick(String name , String url , int position);
     }
