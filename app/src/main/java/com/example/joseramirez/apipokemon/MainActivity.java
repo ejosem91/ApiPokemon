@@ -1,6 +1,7 @@
 package com.example.joseramirez.apipokemon;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -13,11 +14,13 @@ import android.widget.Toast;
 
 import com.example.joseramirez.apipokemon.Adapter.AdapterRegion;
 import com.example.joseramirez.apipokemon.Apicliente.Retrofit;
+import com.example.joseramirez.apipokemon.Model.Generation;
 import com.example.joseramirez.apipokemon.Model.Region;
 import com.example.joseramirez.apipokemon.Model.Results;
 
 import java.util.List;
 
+import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
@@ -37,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getBaseContext(),2);
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setHasFixedSize(false);
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getBaseContext());
+            recyclerView.setLayoutManager(mLayoutManager);
+            recyclerView.setHasFixedSize(false);
 
         setProgresDialog();
         getdata();
@@ -58,7 +61,9 @@ public class MainActivity extends AppCompatActivity {
                     public void onItemClick(String name, String url, int position) {
                         nameadapter = name ;
                         urlfromadapter = url ;
-                        Toast.makeText(getBaseContext(), "text"+ position,Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(MainActivity.this,PokemonActivity.class);
+                        intent.putExtra("name",name);
+                        startActivity(intent);
 
                     }
                 });
@@ -84,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
         progress.show();
 
     }
+
 
 
 
