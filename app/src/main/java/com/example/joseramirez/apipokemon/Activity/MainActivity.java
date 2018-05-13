@@ -1,26 +1,23 @@
-package com.example.joseramirez.apipokemon;
+package com.example.joseramirez.apipokemon.Activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.Toast;
 
 
 import com.example.joseramirez.apipokemon.Adapter.AdapterRegion;
 import com.example.joseramirez.apipokemon.Apicliente.Retrofit;
-import com.example.joseramirez.apipokemon.Model.Generation;
 import com.example.joseramirez.apipokemon.Model.Region;
 import com.example.joseramirez.apipokemon.Model.Results;
+import com.example.joseramirez.apipokemon.Interfaces.PokemonInterface;
+import com.example.joseramirez.apipokemon.R;
 
 import java.util.List;
 
-import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
