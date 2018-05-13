@@ -1,4 +1,4 @@
-package com.example.joseramirez.apipokemon;
+package com.example.joseramirez.apipokemon.Interfaces;
 
 import com.example.joseramirez.apipokemon.Model.Generation;
 import com.example.joseramirez.apipokemon.Model.Region;
